@@ -1,4 +1,4 @@
-package com.yoaki.BugTracker.dto;
+package com.yoaki.BugTracker.domain.dto;
 
 
 

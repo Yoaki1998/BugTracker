@@ -1,11 +1,13 @@
 package com.yoaki.BugTracker.mappers.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 import com.yoaki.BugTracker.domain.Ticket;
 import com.yoaki.BugTracker.domain.dto.TicketDTO;
 import com.yoaki.BugTracker.mappers.Mapper;
 
+@Component
 public class TicketMapperImpl implements Mapper<Ticket, TicketDTO> {
 
     private ModelMapper modelMapper;

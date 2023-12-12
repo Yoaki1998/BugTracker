@@ -17,7 +17,7 @@ public class Comment {
     private Long id;
     private String commenter;
     private String message;
-    private String created_at;
+    private String createdAt;
 
     @ManyToOne
     @JoinColumn(name = "ticket_id")

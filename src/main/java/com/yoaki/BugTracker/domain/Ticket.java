@@ -20,11 +20,11 @@ public class Ticket {
     private Long id;
     private String title;
     private String submitter;
-    private String assigned_to;
+    private String assignedTo;
     private String status;
     private String priority;
-    private String created_at;
-    private String updated_at;
+    private String createdAt;
+    private String updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "project_id")

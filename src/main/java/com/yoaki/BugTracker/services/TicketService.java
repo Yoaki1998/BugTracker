@@ -10,6 +10,7 @@ public interface TicketService {
     List<TicketDTO> getAllTicketFor(Long projectId);
     TicketDTO getTicketById(Long id);
     TicketDTO saveTicket(TicketDTO ticketDTO, Long projectId);
+    TicketDTO updateTicket(TicketDTO ticketDTO, Long projectId, Long id);
 
     //Unused
     void deleteTicket(Long id);

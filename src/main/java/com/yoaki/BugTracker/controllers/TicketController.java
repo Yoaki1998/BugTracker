@@ -11,6 +11,9 @@ import com.yoaki.BugTracker.domain.dto.TicketDTO;
 import com.yoaki.BugTracker.services.TicketService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -32,10 +35,14 @@ public class TicketController {
     }
     
     @PostMapping("api/projects/{projectId}/tickets")
-    public TicketDTO saveTicket(@RequestBody TicketDTO ticketDTO,@PathVariable Long projectId) {
+    public TicketDTO saveTicket(@RequestBody TicketDTO ticketDTO, @PathVariable Long projectId) {
         return ticketService.saveTicket(ticketDTO, projectId);
     }
     
+    @PutMapping("api/projects/{projectId}/tickets/{id}")
+    public TicketDTO updateTicket(@RequestBody TicketDTO ticketDTO, @PathVariable Long projectId, @PathVariable Long id) {
+        return ticketService.updateTicket(ticketDTO, projectId, id);
+    }
     
     
 }

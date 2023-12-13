@@ -1,12 +1,33 @@
 package com.yoaki.BugTracker.controllers;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.yoaki.BugTracker.domain.dto.TicketDTO;
+import com.yoaki.BugTracker.services.TicketService;
+
+
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/tickets")
 public class TicketController {
+
+    private final TicketService ticketService ;
+
+    @GetMapping("api/tickets")
+    public List<TicketDTO> getAllTicket() {
+        return ticketService.getAllTicket();
+    }
+
+    @GetMapping("api/projects/{projectId}/tickets")
+    public List<TicketDTO> getAllTicketFor(@PathVariable Long projectId) {
+        return ticketService.getAllTicketFor(projectId);
+    }
+    
+    
     
 }

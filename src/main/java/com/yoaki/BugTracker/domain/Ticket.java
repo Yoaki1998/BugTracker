@@ -22,6 +22,7 @@ public class Ticket {
     private String submitter;
     private String assignedTo;
     private String status;
+    private String type;
     private String priority;
     private String createdAt;
     private String updatedAt;

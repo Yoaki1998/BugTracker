@@ -9,7 +9,7 @@ public interface TicketService {
     List<TicketDTO> getAllTicket();
     List<TicketDTO> getAllTicketFor(Long projectId);
     TicketDTO getTicketById(Long id);
-    TicketDTO saveTicket(TicketDTO ticketDTO);
+    TicketDTO saveTicket(TicketDTO ticketDTO, Long projectId);
 
     //Unused
     void deleteTicket(Long id);

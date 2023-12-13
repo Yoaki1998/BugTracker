@@ -48,8 +48,10 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketDTO saveTicket(TicketDTO ticketDTO) {
+    public TicketDTO saveTicket(TicketDTO ticketDTO, Long projectId) {
         Ticket ticket = ticketMapper.mapFrom(ticketDTO);
+        Project project = projectRepository.findById(projectId).orElse(null);
+        ticket.setProject(project);
         Ticket saveTicket = ticketRepository.save(ticket);
         return ticketMapper.mapTo(saveTicket);
     }

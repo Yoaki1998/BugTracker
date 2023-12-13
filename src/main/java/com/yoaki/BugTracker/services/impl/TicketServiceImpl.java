@@ -43,7 +43,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketDTO getTicketById(Long id) {
+    public TicketDTO getTicketById(Long projectId, Long id) {
         Ticket ticket = ticketRepository.findById(id).orElse(null);
         return ticketMapper.mapTo(ticket);
     }
@@ -62,34 +62,35 @@ public class TicketServiceImpl implements TicketService {
         return ticketMapper.mapTo(saveTicket);
     }
 
-    @Override
-    public void deleteTicket(Long id) {
-        ticketRepository.deleteById(id);
-    }
-
+    
     @Override
     public TicketDTO updateTicket(TicketDTO ticketDTO, Long projectId, Long id) {
         Project project = projectRepository.findById(projectId).orElse(null);
         Ticket existingTicket = ticketRepository.findById(id).orElse(null);
         Ticket newticket = ticketMapper.mapFrom(ticketDTO);
-
+        
         existingTicket.setProject(project);
-
+        
         existingTicket.setTitle(newticket.getTitle());
         existingTicket.setSubmitter(newticket.getSubmitter());
         existingTicket.setAssignedTo(newticket.getAssignedTo());
         existingTicket.setStatus(newticket.getStatus());
         existingTicket.setType(newticket.getType());
         existingTicket.setPriority(newticket.getPriority());
-
+        
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss").format(new java.util.Date());
         existingTicket.setUpdatedAt(timeStamp);
-
-
+        
+        
         Ticket saveTicket = ticketRepository.save(existingTicket);
         return ticketMapper.mapTo(saveTicket);
     }
-
-
-     
+    
+    
+    @Override
+    public void deleteTicket(Long id) {
+        ticketRepository.deleteById(id);
+    }
+    
+    
 }

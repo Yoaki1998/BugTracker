@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -44,5 +46,9 @@ public class TicketController {
         return ticketService.updateTicket(ticketDTO, projectId, id);
     }
     
+    @GetMapping("api/projects/{projectId}/tickets/{id}")
+    public TicketDTO getTicketById(@PathVariable Long projectId, @PathVariable Long id) {
+        return  ticketService.getTicketById(projectId, id);
+    }
     
 }

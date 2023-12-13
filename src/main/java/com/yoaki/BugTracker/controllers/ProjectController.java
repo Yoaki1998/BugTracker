@@ -12,6 +12,10 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -34,8 +38,13 @@ public class ProjectController {
     }
 
     @PostMapping
-    public ProjectDTO saveProjec(@RequestBody ProjectDTO projectDTO) {
+    public ProjectDTO saveProject(@RequestBody ProjectDTO projectDTO) {
         return projectService.saveProject(projectDTO);
+    }
+
+    @PutMapping("/id")
+    public ProjectDTO updateProject(@PathVariable Long id, @RequestBody ProjectDTO projectDTO) {
+        return projectService.updateProject(id, projectDTO);
     }
 
     @DeleteMapping

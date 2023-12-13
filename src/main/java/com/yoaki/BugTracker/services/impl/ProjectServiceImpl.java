@@ -42,6 +42,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public ProjectDTO updateProject(Long id, ProjectDTO projectDTO) {
+        Project existingProject = projectRepository.findById(id).orElse(null);
+        Project updatedProjet = projectMapper.mapFrom(projectDTO);
+        existingProject.setName(updatedProjet.getName());
+        existingProject.setDescription(updatedProjet.getDescription());
+        existingProject.setManager(updatedProjet.getManager());
+        Project saveProject = projectRepository.save(existingProject);
+        return projectMapper.mapTo(saveProject);
+    }
+
+    @Override
     public void deleteProject(Long id) {
         projectRepository.deleteById(id);
 

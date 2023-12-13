@@ -27,20 +27,21 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDTO getProjectById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProjectById'");
+        Project project = projectRepository.findById(id).orElse(null);
+        return projectMapper.mapTo(project);
     }
 
     @Override
     public ProjectDTO saveProject(ProjectDTO projectDTO) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveProject'");
+        Project project = projectMapper.mapFrom(projectDTO);
+        Project saveProject = projectRepository.save(project);
+        return projectMapper.mapTo(saveProject);
     }
 
     @Override
     public void deleteProject(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteProject'");
+        projectRepository.deleteById(id);
+
     }
     
 }

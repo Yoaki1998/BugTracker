@@ -3,6 +3,8 @@ package com.yoaki.BugTracker.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.yoaki.BugTracker.domain.Ticket;
 import com.yoaki.BugTracker.domain.dto.TicketDTO;
 import com.yoaki.BugTracker.mappers.Mapper;
@@ -11,6 +13,7 @@ import com.yoaki.BugTracker.services.TicketService;
 
 import lombok.RequiredArgsConstructor;
 
+@Service
 @RequiredArgsConstructor
 public class TicketServiceImpl implements TicketService {
 

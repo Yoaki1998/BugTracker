@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yoaki.BugTracker.domain.dto.ProjectDTO;
 
+
 public interface ProjectService {
 
     List<ProjectDTO> getAllProject();

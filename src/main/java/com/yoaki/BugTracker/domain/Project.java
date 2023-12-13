@@ -18,7 +18,7 @@ public class Project {
     private Long id;
     private String name;
     private String description;
-    private String Manager;
+    private String manager;
 
     @OneToMany(mappedBy = "project")
     private List<Ticket> tickets;

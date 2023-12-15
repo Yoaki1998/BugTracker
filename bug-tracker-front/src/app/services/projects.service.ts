@@ -7,27 +7,31 @@ import { environment } from '../../environments/environment.development';
   providedIn: 'root'
 })
 export class ProjectsService {
-  private apiUrl = environment.apiUrl + '/projects';
+  private apiUrlProject = environment.apiUrl + '/projects';
 
   constructor(private http: HttpClient) { }
   
   createProject(body: any | null): Observable<any> {
-    return this.http.post(this.apiUrl, body)
+    return this.http.post(this.apiUrlProject, body)
   }
 
   getProjects(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrlProject);
   }
 
   getOneProject(id: Number): Observable<any> {
-    return this.http.get(this.apiUrl + `/${id}`)
+    return this.http.get(this.apiUrlProject + `/${id}`)
   }
 
   updateProject(body: any | null, id: Number): Observable<any> {
-    return this.http.put(this.apiUrl + `/${id}`, body)
+    return this.http.put(this.apiUrlProject + `/${id}`, body)
   }
 
   deleteProject(id: Number): Observable<any> {
-    return this.http.delete(this.apiUrl +`/${id}`)
+    return this.http.delete(this.apiUrlProject +`/${id}`)
+  }
+
+  getTicketFor(id: Number): Observable<any> {
+    return this.http.get(this.apiUrlProject + `/${id}/tickets`);
   }
 }

@@ -7,23 +7,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TicketsService {
-  private apiUrl = environment.apiUrl + '/projects';
+  private apiUrlTicket = environment.apiUrl + '/tickets';
+  private apiUrlComment = environment.apiUrl + '/comments';
 
   constructor(private http: HttpClient) { }
 
   createTicket(body: any | null): Observable<any> {
-    return this.http.post(this.apiUrl, body)
+    return this.http.post(this.apiUrlTicket, body)
   }
 
   getTickets(): Observable<any> {
-    return this.http.get(this.apiUrl)
+    return this.http.get(this.apiUrlTicket)
   }
 
   getOneTicket(id: Number): Observable<any> {
-    return this.http.get(this.apiUrl +`/${id}`)
+    return this.http.get(this.apiUrlTicket +`/${id}`)
   }
 
   updateTicket(id : Number, body :any | null) {
-    return this.http.put(this.apiUrl +`/${id}`, body)
+    return this.http.put(this.apiUrlTicket +`/${id}`, body)
+  }
+
+  createComment(body: any | null): Observable<any> {
+    return this.http.post(this.apiUrlComment, body)
+  }
+
+  getComments(): Observable<any> {
+    return this.http.get(this.apiUrlComment);
   }
 }

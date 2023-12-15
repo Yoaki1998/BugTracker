@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../services/projects.service';
+import { ProjectsService } from '../../../services/projects.service';
 
 @Component({
   selector: 'app-project-list',
@@ -7,12 +7,15 @@ import { ProjectsService } from '../../services/projects.service';
   styleUrls: ['./project-list.component.css']
 })
 export class ProjectListComponent implements OnInit {
+  projects: any[] = [];
+  
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
     this.projectsService.getProjects().subscribe(
       (data) => {
-        console.log('Résultat de la requête API :', data);
+        this.projects = data
+        console.log('Résultat de la requête API :', this.projects);
       },
       (error) => {
         console.error('Erreur lors de la requête API :', error);

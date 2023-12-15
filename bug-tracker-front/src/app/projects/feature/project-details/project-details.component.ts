@@ -3,7 +3,7 @@ import { ProjectsService } from '../../data-access/projects.service';
 
 @Component({
   selector: 'app-project-details',
-  template: '',
+  template: ' <h1>Project Details</h1> ',
   styles: ''
 })
 export class ProjectDetailsComponent {

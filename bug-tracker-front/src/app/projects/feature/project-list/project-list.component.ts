@@ -12,6 +12,18 @@ export class ProjectListComponent implements OnInit {
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
+    this.setProjects()
+  }
 
+  setProjects() {
+    this.projectsService.getProjects().subscribe({
+      next: (data: any[]) => {
+        this.projects = data;
+        console.log('Résultat de la requête API :', this.projects);
+      },
+      error: (error) => {
+        console.error('Erreur lors de la requête API :', error);
+      }
+    });
   }
 }

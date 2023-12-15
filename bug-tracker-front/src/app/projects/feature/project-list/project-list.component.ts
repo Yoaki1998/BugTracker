@@ -3,7 +3,9 @@ import { ProjectsService } from '../../data-access/projects.service';
 
 @Component({
   selector: 'app-project-list',
-  template: ' <h1>Project Liste</h1> ',
+  template: ` <h1>Project Liste</h1> 
+    <app-project-list-dumb [projects]="projects" ></app-project-list-dumb>
+  `,
   styles: []
 })
 export class ProjectListComponent implements OnInit {

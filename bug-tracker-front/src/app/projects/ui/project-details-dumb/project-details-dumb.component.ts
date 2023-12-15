@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-details-dumb',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './project-details-dumb.component.css'
 })
 export class ProjectDetailsDumbComponent {
+  @Input() project:any;
 
 }

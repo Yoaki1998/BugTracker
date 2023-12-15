@@ -1,1 +1,6 @@
 <p>ticket-list works!</p>
+<ul>
+    <li *ngFor="let ticket of tickets" >
+        {{ ticket.title }},{{ ticket.status }},{{ ticket.priority }},{{ ticket.submitter }},{{ ticket.type }},{{ ticket.assignedTo }}
+    </li>
+</ul>

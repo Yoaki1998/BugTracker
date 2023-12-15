@@ -4,7 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-details',
-  template: ' <h1>Project Details</h1> ',
+  template: ` <h1>Project Liste</h1> 
+  <app-project-details-dumb [project]="project" ></app-project-details-dumb>
+  <app-ticket-list [tickets]="tickets" ></app-ticket-list>
+`,
   styles: ''
 })
 export class ProjectDetailsComponent implements OnInit {

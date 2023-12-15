@@ -9,9 +9,27 @@ import { environment } from '../../environments/environment.development';
 export class ProjectsService {
   private apiUrl = environment.apiUrl + '/projects';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+  
+  createProject(body: any | null): Observable<any> {
+    return this.http.post(this.apiUrl, body)
+  }
 
   getProjects(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  getOneProject(id: Number): Observable<any> {
+    return this.http.get(this.apiUrl + `/${id}`)
+  }
+
+  updateProject(body: any | null, id: Number): Observable<any> {
+    return this.http.put(this.apiUrl + `/${id}`, body)
+  }
+
+  deleteProject(id: Number): Observable<any> {
+    const finalUrl = this.apiUrl +`/${id}`
+    console.log(finalUrl)
+    return this.http.delete(finalUrl)
   }
 }

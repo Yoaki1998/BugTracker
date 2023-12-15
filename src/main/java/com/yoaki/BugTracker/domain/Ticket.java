@@ -2,6 +2,9 @@ package com.yoaki.BugTracker.domain;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +34,7 @@ public class Ticket {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @Cascade(CascadeType.ALL)
     @OneToMany(mappedBy = "ticket")
     private List<Comment> comments;
 }

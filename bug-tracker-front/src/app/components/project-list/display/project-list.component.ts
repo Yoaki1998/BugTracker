@@ -12,14 +12,24 @@ export class ProjectListComponent implements OnInit {
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
-    this.projectsService.getProjects().subscribe(
-      (data) => {
+    this.projectsService.getProjects().subscribe({
+      next: (data) => {
         this.projects = data
         console.log('Résultat de la requête API :', this.projects);
       },
-      (error) => {
+      error: (error) => {
         console.error('Erreur lors de la requête API :', error);
       }
-    );
+    });
+
+    this.projectsService.deleteProject(7)
+    .subscribe({
+      next: () => {
+        console.log(`Le projet d'ID 7 a été supprimé avec succès.`);
+      },
+      error: error => {
+        console.error(`Erreur lors de la suppression du projet : ${error}`);
+      }
+    });
   }
 }

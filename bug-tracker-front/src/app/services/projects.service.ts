@@ -28,8 +28,6 @@ export class ProjectsService {
   }
 
   deleteProject(id: Number): Observable<any> {
-    const finalUrl = this.apiUrl +`/${id}`
-    console.log(finalUrl)
-    return this.http.delete(finalUrl)
+    return this.http.delete(this.apiUrl +`/${id}`)
   }
 }

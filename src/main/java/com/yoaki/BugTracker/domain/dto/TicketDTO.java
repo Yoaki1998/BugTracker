@@ -8,8 +8,6 @@ public class TicketDTO {
     
     private Long id;
     private String title;
-    private String submitter;
-    private String assignedTo;
     private String status;
     private String type;
     private String priority;

@@ -22,8 +22,6 @@ public class Ticket {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     private String title;
-    private String submitter;
-    private String assignedTo;
     private String status;
     private String type;
     private String priority;
@@ -33,6 +31,14 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "submitter_id")
+    private Utilisateur submitter;
+
+    @ManyToOne
+    @JoinColumn(name = "assignedTo_id")
+    private Utilisateur assignedTo;
 
     @Cascade(CascadeType.ALL)
     @OneToMany(mappedBy = "ticket")

@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
-import { AuthService, authGuardFn } from '@auth0/auth0-angular';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,6 @@ export class ProjectsService implements OnInit {
       this.auth.getAccessTokenSilently({cacheMode: "on"}).subscribe({
         next: (newToken) => {
           console.log(newToken)
-          console.log("lblblblblbblblblblbblblb")
         },
         error: (error) => {
           console.log('Error access token :', error);

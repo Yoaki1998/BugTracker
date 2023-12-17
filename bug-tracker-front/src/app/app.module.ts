@@ -14,8 +14,6 @@ import { TicketListComponent } from './projects/ui/ticket-list/ticket-list.compo
 import { AssignedPeopleComponent } from './projects/ui/assigned-people/assigned-people.component';
 import { AuthButtonComponent } from './shared/Auth0/login-button.component';
 import { AuthInterceptor } from './shared/Auth0/auth.interceptor';
-import { RoleComponent } from './role/feature/role/role.component';
-import { RoleDumbComponent } from './role/ui/role-dumb/role-dumb.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +25,6 @@ import { RoleDumbComponent } from './role/ui/role-dumb/role-dumb.component';
     TicketListComponent,
     AssignedPeopleComponent,
     AuthButtonComponent,
-    RoleComponent,
-    RoleDumbComponent
   ],
   imports: [
     BrowserModule,

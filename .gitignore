@@ -33,3 +33,5 @@ build/
 .vscode/
 
 ./bug-tracker-front/src/environments/
+
+./src/main/resources/application.properties

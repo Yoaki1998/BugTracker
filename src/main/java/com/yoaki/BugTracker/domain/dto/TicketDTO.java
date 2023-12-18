@@ -13,5 +13,10 @@ public class TicketDTO {
     private String priority;
     private String createdAt;
     private String updatedAt;
-    private Long projectId;
+    
+    private ProjectDTO project;
+
+    private UtilisateurDTO submitter;
+
+    private UtilisateurDTO assignedTo;
 }

@@ -1,5 +1,6 @@
 package com.yoaki.BugTracker.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Comment {
     private String message;
     private String createdAt;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
     

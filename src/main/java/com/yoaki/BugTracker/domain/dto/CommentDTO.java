@@ -12,4 +12,5 @@ public class CommentDTO {
     private String createdAt;
     private Long ticketId;
     
+    private TicketDTO ticket;
 }

@@ -1,6 +1,7 @@
 package com.yoaki.BugTracker.controllers;
 
 import com.yoaki.BugTracker.services.ProjectService;
+import com.yoaki.BugTracker.services.UtilisateurService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final UtilisateurService utilisateurService;
 
     @GetMapping
     public List<ProjectDTO> getAllProject() {

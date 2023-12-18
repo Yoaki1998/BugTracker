@@ -2,9 +2,7 @@ package com.yoaki.BugTracker.domain;
 
 import java.util.List;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -23,16 +21,16 @@ public class Utilisateur {
     private Boolean email_verified;
     private String iss;
 
-    @Cascade(CascadeType.ALL)
-    @OneToMany(mappedBy = "utilisateur")
-    private List<Project> projects;
 
-    @Cascade(CascadeType.ALL)
-    @OneToMany(mappedBy = "submitter")
-    private List<Ticket> submittedTickets;
+    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL)
+    private List<Project> managerProjects;
 
-    @Cascade(CascadeType.ALL)
-    @OneToMany(mappedBy = "assignedTo")
-    private List<Ticket> assignedTickets;
+
+    @OneToMany(mappedBy = "submitter", cascade = CascadeType.ALL)
+    private List<Ticket> submitted;
+
+
+    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL)
+    private List<Ticket> assigned;
 
 }

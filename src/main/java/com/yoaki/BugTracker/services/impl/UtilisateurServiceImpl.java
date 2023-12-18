@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.http.HttpEntity;
@@ -36,12 +35,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     private final Mapper<Utilisateur, UtilisateurDTO> utilisateurMapper;
     private final RestTemplate restTemplate;
 
-    @Value("${app.api.domain}")
-    private final String domain ;
-    @Value("${app.api.clientId}")
-    private final String clientId;
-    @Value("${app.api.clientSecret}")
-    private final String clientSecret ;
+  
+    private final String domain ="dev-yoakiniscoise.eu.auth0.com" ;
+
+    private final String clientId = "hVwYQaRckdYv3WFJFq0bl7TDMAmV24L2";
+
+    private final String clientSecret = "Xk6mk_3mYDNvxDzPUjaYodtjflVTersmBsDsDDD004YXOoFdB5RGz_wSpU8TCzJ7" ;
 
     @Override
     public List<UtilisateurDTO> getAllUtilisateurs() {

@@ -88,8 +88,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         existingUtilisateur.setSubmitted(newUtilisateur.getSubmitted());
         existingUtilisateur.setAssigned(newUtilisateur.getAssigned());
 
-        Utilisateur updatedUtilisateur = utilisateurRepository
-                .save(existingUtilisateur);
+        Utilisateur updatedUtilisateur = utilisateurRepository.save(existingUtilisateur);
         return utilisateurMapper.mapTo(updatedUtilisateur);
     }
 
@@ -136,13 +135,23 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         pullAuthUser();
         for (int i=0; i<= authUsers.size()-1; ++i) {
             User data = authUsers.get(i);
-            Utilisateur newUser = new Utilisateur();
-            newUser.setId(data.getId());
-            newUser.setEmail(data.getEmail());
-            newUser.setEmail_verified(data.isEmailVerified());
-            newUser.setName(data.getName());
-            newUser.setPicture(data.getPicture());
-            utilisateurRepository.save(newUser);
+            if ( utilisateurRepository.findById(data.getId()) == null ) {
+                Utilisateur newUser = new Utilisateur();
+                newUser.setId(data.getId());
+                newUser.setEmail(data.getEmail());
+                newUser.setEmail_verified(data.isEmailVerified());
+                newUser.setName(data.getName());
+                newUser.setPicture(data.getPicture());
+                utilisateurRepository.save(newUser);
+            } else {
+                Utilisateur existingUser = utilisateurRepository.findById(data.getId()).orElse(null);
+                existingUser.setId(data.getId());
+                existingUser.setEmail(data.getEmail());
+                existingUser.setEmail_verified(data.isEmailVerified());
+                existingUser.setName(data.getName());
+                existingUser.setPicture(data.getPicture());
+                utilisateurRepository.save(existingUser);
+            }
         }
     }
 

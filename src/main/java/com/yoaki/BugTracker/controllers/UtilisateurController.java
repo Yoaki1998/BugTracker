@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 
 
@@ -42,11 +41,6 @@ public class UtilisateurController {
     @PutMapping("{id}")
     public UtilisateurDTO updateUtilisateur(@PathVariable String id, @RequestBody UtilisateurDTO utilisateurDTO) {
         return utilisateurService.updateUtilisateur(id, utilisateurDTO);
-    }
-
-    @PostMapping()
-    public UtilisateurDTO savUtilisateur(@RequestBody UtilisateurDTO utilisateurDTO) {
-        return utilisateurService.saveUtilisateur(utilisateurDTO);
     }
     
 

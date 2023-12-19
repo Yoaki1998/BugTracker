@@ -5,14 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.hibernate.mapping.Any;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.boot.json.JsonParserFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -58,17 +53,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public UtilisateurDTO getUtilisateurById(String id) {
+        setAuthUserInDb();
         Utilisateur utilisateur = utilisateurRepository.findById(id).orElse(null);
         return utilisateurMapper.mapTo(utilisateur);
     }
 
-    @Override
-    public UtilisateurDTO saveUtilisateur(UtilisateurDTO utilisateurDTO) {
-        Utilisateur utilisateur = utilisateurMapper.mapFrom(utilisateurDTO);
-        Utilisateur savedUtilisateur = utilisateurRepository.save(utilisateur);
-        return utilisateurMapper.mapTo(savedUtilisateur);
 
-    }
 
     @Override
     public void deleteUtilisateur(String id) {
@@ -131,7 +121,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     }
 
-    private void setAuthUserInDb() {
+    @Override
+    public void setAuthUserInDb() {
         pullAuthUser();
         for (int i=0; i<= authUsers.size()-1; ++i) {
             User data = authUsers.get(i);

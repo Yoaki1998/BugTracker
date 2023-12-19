@@ -20,7 +20,6 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnInit(): void {
     const projectId: number = Number(this.router.snapshot.paramMap.get('id'));
     this.setProject(projectId);
-    this.setTickets(projectId)
 
   }
 
@@ -36,17 +35,7 @@ export class ProjectDetailsComponent implements OnInit {
     });
   }
 
-  setTickets(projectId: number) {
-    this.projectsService.getTicketFor(projectId).subscribe({
-      next: (data: any[]) => {
-        this.tickets = data;
-        console.log('Résultat de la requête API :', this.tickets);
-      },
-      error: (error) => {
-        console.error('Erreur lors de la requête API :', error);
-      }
-    });
-  }
+
 
 }
 

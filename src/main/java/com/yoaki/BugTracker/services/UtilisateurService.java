@@ -11,6 +11,5 @@ public interface UtilisateurService {
     UtilisateurDTO saveUtilisateur(UtilisateurDTO utilisateurDTO);
     UtilisateurDTO updateUtilisateur(String id,UtilisateurDTO utilisateurDTO);
     void deleteUtilisateur(String id);
-    void updateDatabaseWithAuth0();
     
 }

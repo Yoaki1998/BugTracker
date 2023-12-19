@@ -1,9 +1,11 @@
 package com.yoaki.BugTracker.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.hibernate.mapping.Any;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.http.HttpEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.auth0.client.mgmt.ManagementAPI;
 import com.auth0.client.mgmt.filter.UserFilter;
 import com.auth0.exception.Auth0Exception;
+import com.auth0.json.mgmt.users.User;
 import com.auth0.json.mgmt.users.UsersPage;
 import com.auth0.net.Response;
 import com.yoaki.BugTracker.domain.Utilisateur;
@@ -42,8 +45,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     private final String clientSecret = "Xk6mk_3mYDNvxDzPUjaYodtjflVTersmBsDsDDD004YXOoFdB5RGz_wSpU8TCzJ7" ;
 
+    private List<User> authUsers = new ArrayList<>();
+
     @Override
     public List<UtilisateurDTO> getAllUtilisateurs() {
+        setAuthUserInDb();
         List<Utilisateur> utilisateurs = utilisateurRepository.findAll();
         return utilisateurs.stream()
                 .map(utilisateurMapper::mapTo)
@@ -104,8 +110,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     }
 
-    @Override
-    public void updateDatabaseWithAuth0() {
+    private void pullAuthUser() {
         String token = getManagementApiToken();
         
         JsonParser jsonParser = JsonParserFactory.getJsonParser();
@@ -116,11 +121,29 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         try {
         ManagementAPI mgmt = ManagementAPI.newBuilder(domain, accessToken).build();
         Response<UsersPage> response = mgmt.users().list( new UserFilter() ).execute();
-            System.out.println("Users: " + response.getBody().getItems().get(1).getEmail() );
+        System.out.println("La boucle doit tourner :"+ response.getBody().getItems().size());
+        for ( int i=0; i<= response.getBody().getItems().size()-1; ++i ) {;
+            authUsers.add(response.getBody().getItems().get(i));
+            System.out.println(authUsers);
+        }
         } catch (Auth0Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void setAuthUserInDb() {
+        pullAuthUser();
+        for (int i=0; i<= authUsers.size()-1; ++i) {
+            User data = authUsers.get(i);
+            Utilisateur newUser = new Utilisateur();
+            newUser.setId(data.getId());
+            newUser.setEmail(data.getEmail());
+            newUser.setEmail_verified(data.isEmailVerified());
+            newUser.setName(data.getName());
+            newUser.setPicture(data.getPicture());
+            utilisateurRepository.save(newUser);
+        }
     }
 
 }

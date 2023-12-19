@@ -20,8 +20,6 @@ public class Comment {
     private String message;
     private String createdAt;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+
     
 }

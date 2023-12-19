@@ -21,10 +21,7 @@ public class CommentController {
     
     private final CommentService commentService;
 
-    @GetMapping("api/tickets/{ticketId}/comments")
-    public List<CommentDTO> getAllComment(@PathVariable Long ticketId) {
-        return commentService.getAllComment(ticketId);
-    }
+
 
     @PostMapping("api/tickets/{ticketId}/comments")
     public CommentDTO saveComment(@RequestBody CommentDTO commentDTO, @PathVariable Long ticketId) {

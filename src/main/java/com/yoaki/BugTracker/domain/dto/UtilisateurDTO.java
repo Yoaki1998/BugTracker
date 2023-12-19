@@ -22,4 +22,6 @@ public class UtilisateurDTO {
     private List<TicketDTO> submitted;
 
     private List<TicketDTO> assigned;
+
+    private List<CommentDTO> Comments;
 }

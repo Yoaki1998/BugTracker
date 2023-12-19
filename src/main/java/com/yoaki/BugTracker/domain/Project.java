@@ -15,11 +15,9 @@ public class Project {
     private Long id;
     private String name;
     private String description;
+    private String manager;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tickets")
     private List<Ticket> tickets;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "manager_id")
-    private Utilisateur manager;
 }

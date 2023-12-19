@@ -24,21 +24,12 @@ public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final Mapper<Comment, CommentDTO> commentMapper;
 
-    @Override
-    public List<CommentDTO> getAllComment(Long ticketId) {
-        Ticket ticket = ticketRepository.findById(ticketId).orElse(null);
-        List<Comment> comments = commentRepository.findByTicket(ticket);
-        return comments.stream()
-            .map(commentMapper::mapTo)
-            .collect(Collectors.toList());
-    }
 
     @Override
     public CommentDTO saveComment(CommentDTO commentDTO, Long ticketId) {
         Ticket ticket = ticketRepository.findById(ticketId).orElse(null);
         Comment comment = commentMapper.mapFrom(commentDTO);
 
-        comment.setTicket(ticket);
 
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss").format(new java.util.Date());
         comment.setCreatedAt(timeStamp);

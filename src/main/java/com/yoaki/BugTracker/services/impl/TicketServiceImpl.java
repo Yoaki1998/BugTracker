@@ -33,14 +33,6 @@ public class TicketServiceImpl implements TicketService {
         .collect(Collectors.toList());
     }
 
-    @Override
-    public List<TicketDTO> getAllTicketFor( Long projectId ) {
-        Project project = projectRepository.findById(projectId).orElse(null);
-        List<Ticket> tickets = ticketRepository.findByProject( project );
-        return tickets.stream()
-        .map(ticketMapper::mapTo)
-        .collect(Collectors.toList());
-    }
 
     @Override
     public TicketDTO getTicketById(Long projectId, Long id) {
@@ -53,7 +45,6 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket = ticketMapper.mapFrom(ticketDTO);
         Project project = projectRepository.findById(projectId).orElse(null);
 
-        ticket.setProject(project);
 
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss").format(new java.util.Date());
         ticket.setCreatedAt(timeStamp);
@@ -69,7 +60,6 @@ public class TicketServiceImpl implements TicketService {
         Ticket existingTicket = ticketRepository.findById(id).orElse(null);
         Ticket newticket = ticketMapper.mapFrom(ticketDTO);
         
-        existingTicket.setProject(project);
         
         existingTicket.setTitle(newticket.getTitle());
         existingTicket.setSubmitter(newticket.getSubmitter());

@@ -25,19 +25,11 @@ public class Ticket {
     private String priority;
     private String createdAt;
     private String updatedAt;
+    private String assignedTo;
+    private String submitter;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "project_id")
-    private Project project;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "submitter_id")
-    private Utilisateur submitter;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "assignedTo_id")
-    private Utilisateur assignedTo;
-
-    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "comments")
     private List<Comment> comments;
+
 }

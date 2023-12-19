@@ -26,11 +26,6 @@ public class TicketController {
     public List<TicketDTO> getAllTicket() {
         return ticketService.getAllTicket();
     }
-
-    @GetMapping("api/projects/{projectId}/tickets")
-    public List<TicketDTO> getAllTicketFor(@PathVariable Long projectId) {
-        return ticketService.getAllTicketFor(projectId);
-    }
     
     @PostMapping("api/projects/{projectId}/tickets")
     public TicketDTO saveTicket(@RequestBody TicketDTO ticketDTO, @PathVariable Long projectId) {

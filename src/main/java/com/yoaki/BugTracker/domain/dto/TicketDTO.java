@@ -1,6 +1,8 @@
 package com.yoaki.BugTracker.domain.dto;
 
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -13,10 +15,9 @@ public class TicketDTO {
     private String priority;
     private String createdAt;
     private String updatedAt;
+    private String submitter;
+    private String assignedTo;
     
-    private ProjectDTO project;
-
-    private UtilisateurDTO submitter;
-
-    private UtilisateurDTO assignedTo;
+    
+    private List<CommentDTO> comments;
 }

@@ -7,7 +7,6 @@ import com.yoaki.BugTracker.domain.dto.TicketDTO;
 public interface TicketService {
     
     List<TicketDTO> getAllTicket();
-    List<TicketDTO> getAllTicketFor(Long projectId);
     TicketDTO getTicketById(Long projectId, Long id);
     TicketDTO saveTicket(TicketDTO ticketDTO, Long projectId);
     TicketDTO updateTicket(TicketDTO ticketDTO, Long projectId, Long id);

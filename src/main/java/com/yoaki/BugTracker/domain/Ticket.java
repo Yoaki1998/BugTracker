@@ -2,13 +2,8 @@ package com.yoaki.BugTracker.domain;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -24,11 +19,16 @@ public class Ticket {
     private String priority;
     private String createdAt;
     private String updatedAt;
-    private String assignedTo;
+
+    @OneToMany(mappedBy = "ticket" ,cascade = CascadeType.ALL)
+    private List<Comment> comments;
+
+
+    private Long project;
+
     private String submitter;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "comments")
-    private List<Comment> comments;
+    private String assignedTo;
+
 
 }

@@ -15,8 +15,11 @@ public class TicketDTO {
     private String priority;
     private String createdAt;
     private String updatedAt;
+
     private String submitter;
     private String assignedTo;
+
+    private Long project;
     
     
     private List<CommentDTO> comments;

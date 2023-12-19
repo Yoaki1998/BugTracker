@@ -5,7 +5,6 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
@@ -22,19 +21,15 @@ public class Utilisateur {
     private Boolean email_verified;
     private String iss;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projects")
+    @OneToMany(mappedBy = "manager" ,cascade = CascadeType.ALL)
     private List<Project> projects;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "submitted")
+    @OneToMany(mappedBy = "submitter" ,cascade = CascadeType.ALL)
     private List<Ticket> submitted;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "assigned")
+    @OneToMany(mappedBy = "assignedTo" ,cascade = CascadeType.ALL)
     private List<Ticket> assigned;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "comments")
+    @OneToMany(mappedBy = "commenter" ,cascade = CascadeType.ALL)
     private List<Comment> comments;
 }

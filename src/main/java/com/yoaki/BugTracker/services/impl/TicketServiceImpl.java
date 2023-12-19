@@ -6,11 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.yoaki.BugTracker.domain.Project;
 import com.yoaki.BugTracker.domain.Ticket;
 import com.yoaki.BugTracker.domain.dto.TicketDTO;
 import com.yoaki.BugTracker.mappers.Mapper;
-import com.yoaki.BugTracker.repositories.ProjectRepository;
 import com.yoaki.BugTracker.repositories.TicketRepository;
 import com.yoaki.BugTracker.services.TicketService;
 
@@ -20,8 +18,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TicketServiceImpl implements TicketService {
 
-    private final ProjectRepository projectRepository;
-    
     private final TicketRepository ticketRepository;
     private final Mapper<Ticket, TicketDTO> ticketMapper;
 
@@ -43,7 +39,6 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public TicketDTO saveTicket(TicketDTO ticketDTO, Long projectId) {
         Ticket ticket = ticketMapper.mapFrom(ticketDTO);
-        Project project = projectRepository.findById(projectId).orElse(null);
 
 
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss").format(new java.util.Date());
@@ -56,7 +51,6 @@ public class TicketServiceImpl implements TicketService {
     
     @Override
     public TicketDTO updateTicket(TicketDTO ticketDTO, Long projectId, Long id) {
-        Project project = projectRepository.findById(projectId).orElse(null);
         Ticket existingTicket = ticketRepository.findById(id).orElse(null);
         Ticket newticket = ticketMapper.mapFrom(ticketDTO);
         

@@ -25,7 +25,7 @@ export class ProjectListComponent implements OnInit {
         this.projects = data.projects 
       },
       error: (error) => {
-        console.error('Erreur lors de la requête API :', error);
+        console.error('API :', error) ;
       }
     });
   }

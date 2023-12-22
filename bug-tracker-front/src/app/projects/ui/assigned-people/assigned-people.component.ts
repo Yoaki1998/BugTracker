@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-assigned-people',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './assigned-people.component.css'
 })
 export class AssignedPeopleComponent {
-
+  @Input() staff: any;
 }

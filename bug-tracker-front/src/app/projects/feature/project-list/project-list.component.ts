@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../data-access/projects.service';
-import { AuthService } from '@auth0/auth0-angular';
 import { UtilisateursService } from '../../../shared/data-access/utilisateurs.service';
 
 @Component({
@@ -13,7 +11,7 @@ import { UtilisateursService } from '../../../shared/data-access/utilisateurs.se
 export class ProjectListComponent implements OnInit {
   projects: any[] = [];
 
-  constructor(private projectsService: ProjectsService, private auth: AuthService, private utilisateurService: UtilisateursService) { }
+  constructor( private utilisateurService: UtilisateursService) { }
 
   ngOnInit(): void {
   this.setProjects();

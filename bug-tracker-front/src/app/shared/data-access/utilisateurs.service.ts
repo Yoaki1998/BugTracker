@@ -30,6 +30,10 @@ export class UtilisateursService {
     );
   }
 
+  getUserById(userId: string): Observable<any> {
+    return this.http.get(this.apiUrlProject + `/${userId}`);
+  }
+
 
 }
 

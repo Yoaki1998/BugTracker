@@ -1,1 +1,7 @@
 <p>assigned-people works!</p>
+
+<ul>
+    <li *ngFor="let people of staff" >
+        {{ people.email }},{{ people.name }}
+    </li>
+</ul>

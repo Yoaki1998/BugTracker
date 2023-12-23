@@ -16,7 +16,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   project: any;
   tickets: any[] = [];
-  tempo: any[] = [];
+  staffIds: any[] = [];
   staff: any[] = [];
 
   constructor(private projectsService: ProjectsService, private router: ActivatedRoute, private utilisateurService: UtilisateursService) { }
@@ -34,18 +34,16 @@ export class ProjectDetailsComponent implements OnInit {
         this.tickets = data.tickets;
 
         for ( let i = 0 ; i <= this.tickets.length - 1; i++) { 
-          if ( !this.tempo.includes(this.tickets[i].assignedTo ) ) { 
-            this.tempo.push( this.tickets[i].assignedTo )  }
+          if ( !this.staffIds.includes(this.tickets[i].assignedTo ) ) { 
+            this.staffIds.push( this.tickets[i].assignedTo )  }
         };
     
     
-        this.tempo.map( userId => {
+        this.staffIds.map( userId => {
           this.utilisateurService.getUserById(userId).subscribe({
             next: (data:any) => {return this.staff.push(data)}
           })
          })
-    
-        console.log(this.staff)
     
         console.log('Résultat de la requête API :', this.project);
 

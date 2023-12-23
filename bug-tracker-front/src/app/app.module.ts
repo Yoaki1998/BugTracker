@@ -14,6 +14,9 @@ import { TicketListComponent } from './projects/ui/ticket-list/ticket-list.compo
 import { AssignedPeopleComponent } from './projects/ui/assigned-people/assigned-people.component';
 import { AuthButtonComponent } from './shared/Auth0/login-button.component';
 import { AuthInterceptor } from './shared/Auth0/auth.interceptor';
+import { TicketDetailsComponent } from './tickets/feature/ticket-details/ticket-details.component';
+import { TicketDetailsDumbComponent } from './tickets/ui/ticket-details-dumb/ticket-details-dumb.component';
+import { TicketListDumbComponent } from './tickets/ui/ticket-list-dumb/ticket-list-dumb.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { AuthInterceptor } from './shared/Auth0/auth.interceptor';
     TicketListComponent,
     AssignedPeopleComponent,
     AuthButtonComponent,
+    TicketDetailsComponent,
+    TicketDetailsDumbComponent,
+    TicketListDumbComponent,
   ],
   imports: [
     BrowserModule,

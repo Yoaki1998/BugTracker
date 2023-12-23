@@ -5,13 +5,19 @@ import { ProjectDetailsComponent } from './projects/feature/project-details/proj
 import { TicketDetailsComponent } from './tickets/feature/ticket-details/ticket-details.component';
 import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.component';
 import { HomeComponent } from './home/feature/home/home.component';
+import { ManageUserComponent } from './manage/feature/manage-user/manage-user.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectListComponent },
   { path: 'project/:id', component: ProjectDetailsComponent },
   { path: 'tickets', component: TicketListComponent },
   { path: 'ticket/:id', component: TicketDetailsComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'manage', component: ManageUserComponent },
+
+
+
+  { path: '', component: HomeComponent, pathMatch: 'full' }
+
 
 
 ];

@@ -21,6 +21,7 @@ import { TicketDetailsDumbComponent } from './tickets/ui/ticket-details-dumb/tic
 import { TicketListDumbComponent } from './tickets/ui/ticket-list-dumb/ticket-list-dumb.component';
 import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.component';
 import { HomeComponent } from './home/feature/home/home.component';
+import { ManageUserComponent } from './manage/feature/manage-user/manage-user.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HomeComponent } from './home/feature/home/home.component';
     TicketDetailsDumbComponent,
     TicketListDumbComponent,
     TicketListComponent,
-    HomeComponent
+    HomeComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,

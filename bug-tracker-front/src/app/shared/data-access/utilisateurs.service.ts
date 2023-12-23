@@ -10,7 +10,7 @@ import { Observable, catchError, of, switchMap } from 'rxjs';
 })
 export class UtilisateursService {
 
-  private apiUrlProject = environment.apiUrl + '/utilisateurs';
+  private apiUrlUtilisateur = environment.apiUrl + '/utilisateurs';
 
   private userId: string | undefined = "";
 
@@ -21,7 +21,7 @@ export class UtilisateursService {
       switchMap(userdata => {
         this.userId = userdata?.sub;
         console.log(this.userId);
-        return this.http.get(this.apiUrlProject + `/${this.userId}`);
+        return this.http.get(this.apiUrlUtilisateur + `/${this.userId}`);
       }),
       catchError(error => {
         console.log(error);
@@ -31,7 +31,11 @@ export class UtilisateursService {
   }
 
   getUserById(userId: string): Observable<any> {
-    return this.http.get(this.apiUrlProject + `/${userId}`);
+    return this.http.get(this.apiUrlUtilisateur + `/${userId}`);
+  }
+
+  getAllUsers(): Observable<any> {
+    return this.http.get(this.apiUrlUtilisateur);
   }
 
 

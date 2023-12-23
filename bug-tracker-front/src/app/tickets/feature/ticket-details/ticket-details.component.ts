@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketsService } from '../../data-access/tickets.service';
 import { ActivatedRoute } from '@angular/router';
-import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-ticket-details',

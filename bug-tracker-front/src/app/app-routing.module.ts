@@ -4,12 +4,16 @@ import { ProjectListComponent } from './projects/feature/project-list/project-li
 import { ProjectDetailsComponent } from './projects/feature/project-details/project-details.component';
 import { TicketDetailsComponent } from './tickets/feature/ticket-details/ticket-details.component';
 import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.component';
+import { HomeComponent } from './home/feature/home/home.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectListComponent },
   { path: 'project/:id', component: ProjectDetailsComponent },
   { path: 'tickets', component: TicketListComponent },
-  { path: 'ticket/:id', component: TicketDetailsComponent }
+  { path: 'ticket/:id', component: TicketDetailsComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+
+
 ];
 
 @NgModule({

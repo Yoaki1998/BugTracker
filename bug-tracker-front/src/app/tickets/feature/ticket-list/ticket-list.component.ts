@@ -7,8 +7,6 @@ import { UtilisateursService } from '../../../shared/data-access/utilisateurs.se
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent implements OnInit {
-  submitted: any [] = [] ;
-  assigned: any [] = [] ;
   tickets: any [] = [];
 
   constructor( private utilisateurService: UtilisateursService ) {}
@@ -21,9 +19,9 @@ export class TicketListComponent implements OnInit {
   setTickets() {
     this.utilisateurService.getCurrentUserApiData().subscribe({
       next: (data) => {
-        this.assigned = data.assigned
-        this.submitted = data.submitted
-        var a = this.assigned.concat(this.submitted)
+        var assigned = data.assigned
+        var submitted = data.submitted
+        var a = assigned.concat(submitted)
         this.tickets = this.uniq_fast(a)
         console.log(this.tickets)
 

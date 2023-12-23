@@ -20,6 +20,7 @@ import { TicketDetailsComponent } from './tickets/feature/ticket-details/ticket-
 import { TicketDetailsDumbComponent } from './tickets/ui/ticket-details-dumb/ticket-details-dumb.component';
 import { TicketListDumbComponent } from './tickets/ui/ticket-list-dumb/ticket-list-dumb.component';
 import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.component';
+import { HomeComponent } from './home/feature/home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.c
     TicketDetailsComponent,
     TicketDetailsDumbComponent,
     TicketListDumbComponent,
-    TicketListComponent
+    TicketListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

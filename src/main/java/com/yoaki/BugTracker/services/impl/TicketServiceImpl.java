@@ -31,7 +31,7 @@ public class TicketServiceImpl implements TicketService {
 
 
     @Override
-    public TicketDTO getTicketById(Long projectId, Long id) {
+    public TicketDTO getTicketById(Long id) {
         Ticket ticket = ticketRepository.findById(id).orElse(null);
         return ticketMapper.mapTo(ticket);
     }

@@ -14,10 +14,10 @@ export class ProjectListComponent implements OnInit {
   constructor( private utilisateurService: UtilisateursService) { }
 
   ngOnInit(): void {
-  this.setProjects();
+  this.setProjectsList();
   }
 
-  setProjects() {
+  setProjectsList() {
     this.utilisateurService.getCurrentUserApiData().subscribe({
       next: (data) => {
         this.projects = data.projects 

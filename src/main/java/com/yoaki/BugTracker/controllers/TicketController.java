@@ -37,9 +37,9 @@ public class TicketController {
         return ticketService.updateTicket(ticketDTO, projectId, id);
     }
     
-    @GetMapping("api/projects/{projectId}/tickets/{id}")
-    public TicketDTO getTicketById(@PathVariable Long projectId, @PathVariable Long id) {
-        return  ticketService.getTicketById(projectId, id);
+    @GetMapping("api/tickets/{id}")
+    public TicketDTO getTicketById( @PathVariable Long id) {
+        return  ticketService.getTicketById(id);
     }
     
 }

@@ -7,7 +7,7 @@ import { UtilisateursService } from '../../../shared/data-access/utilisateurs.se
   selector: 'app-project-details',
   template: ` <h1>Project Liste</h1> 
   <app-project-details-dumb [project]="project" ></app-project-details-dumb>
-  <app-ticket-list [tickets]="tickets" ></app-ticket-list>
+  <app-project-ticket-list [tickets]="tickets" ></app-project-ticket-list>
   <app-assigned-people [staff]="staff" ></app-assigned-people>
 `,
   styles: ''
@@ -23,11 +23,11 @@ export class ProjectDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const projectId: number = Number(this.router.snapshot.paramMap.get('id'));
-    this.setProject(projectId);
+    this.setProjectDetails(projectId);
 
   }
 
-  setProject(projectId: number) {
+  setProjectDetails(projectId: number) {
     this.projectsService.getOneProject(projectId).subscribe({
       next: (data: any) => {
         this.project = data;

@@ -24,6 +24,7 @@ import { HomeComponent } from './home/feature/home/home.component';
 import { ManageUserComponent } from './manage/feature/manage-user/manage-user.component';
 import { NavbarComponent } from './shared/ui/navbar/navbar.component';
 import { SidebarComponent } from './shared/ui/sidebar/sidebar.component';
+import { ScreenComponent } from './shared/ui/screen/screen.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SidebarComponent } from './shared/ui/sidebar/sidebar.component';
     HomeComponent,
     ManageUserComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ScreenComponent
   ],
   imports: [
     BrowserModule,

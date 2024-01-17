@@ -22,6 +22,8 @@ import { TicketListDumbComponent } from './tickets/ui/ticket-list-dumb/ticket-li
 import { TicketListComponent } from './tickets/feature/ticket-list/ticket-list.component';
 import { HomeComponent } from './home/feature/home/home.component';
 import { ManageUserComponent } from './manage/feature/manage-user/manage-user.component';
+import { NavbarComponent } from './shared/ui/navbar/navbar.component';
+import { SidebarComponent } from './shared/ui/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ManageUserComponent } from './manage/feature/manage-user/manage-user.co
     TicketListDumbComponent,
     TicketListComponent,
     HomeComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

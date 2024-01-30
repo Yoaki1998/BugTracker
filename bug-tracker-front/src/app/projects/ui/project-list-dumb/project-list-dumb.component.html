@@ -1,6 +1,20 @@
-<p>project-list-dumb works!</p>
-<ul>
-    <li *ngFor="let project of projects" >
-        {{ project.description }},{{ project.manager }},{{ project.name }}
-    </li>
-</ul>
+<table class="table-auto relative w-full">
+    <thead>
+      <tr>
+        <th>Nom du projet</th>
+        <th>Description</th>
+        <th>Manager</th>
+        <th>Nombres de Tickets</th>
+        <th>Etat</th>
+        <th>Date de création</th>
+        <th>Dernière mise a jour</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border" *ngFor="let project of projects" >
+        <td>{{ project.name }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.manager }}</td>
+      </tr>
+    </tbody>
+  </table>

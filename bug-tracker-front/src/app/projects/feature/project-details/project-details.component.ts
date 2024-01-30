@@ -5,8 +5,7 @@ import { UtilisateursService } from '../../../shared/data-access/utilisateurs.se
 
 @Component({
   selector: 'app-project-details',
-  template: ` <h1>Project Liste</h1> 
-  <app-project-details-dumb [project]="project" ></app-project-details-dumb>
+  template: `<app-project-details-dumb [project]="project" ></app-project-details-dumb>
   <app-project-ticket-list [tickets]="tickets" ></app-project-ticket-list>
   <app-assigned-people [staff]="staff" ></app-assigned-people>
 `,

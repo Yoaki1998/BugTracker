@@ -3,9 +3,7 @@ import { UtilisateursService } from '../../../shared/data-access/utilisateurs.se
 
 @Component({
   selector: 'app-project-list',
-  template: ` <h1>Project Liste</h1> 
-    <app-project-list-dumb [projects]="projects" ></app-project-list-dumb>
-  `,
+  template: ` <app-project-list-dumb [projects]="projects" ></app-project-list-dumb> `,
   styles: []
 })
 export class ProjectListComponent implements OnInit {

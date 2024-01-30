@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit  {
   }
 
   chooseTitle() {
-    if (this.href.includes('http://localhost:4200')) { this.title = "Home" }
+    if (this.href.includes('http://localhost:4200')) { this.title = "Dashboard" }
     if (this.href.includes('http://localhost:4200/project')) { this.title = "Projet" }
     if (this.href.includes('http://localhost:4200/ticket')) { this.title = "Ticket" }
     if (this.href.includes('http://localhost:4200/projects')) { this.title = "Liste des Projets" }

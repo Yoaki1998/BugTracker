@@ -10,11 +10,11 @@
         <th>Dernière mise a jour</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="border" *ngFor="let project of projects" >
-        <td>{{ project.name }}</td>
-        <td>{{ project.description }}</td>
-        <td>{{ project.manager }}</td>
-      </tr>
+    <tbody class="border" *ngFor="let project of projects" >
+        <tr [routerLink] ="['/project/', project.id ]">
+            <td>{{ project.name }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.manager }}</td>
+        </tr>
     </tbody>
   </table>
